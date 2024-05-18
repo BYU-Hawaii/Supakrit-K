@@ -1,0 +1,10 @@
+body {background-color: #4e5a61;} /* This style gives a grey background to the body */
+header {background-color: #3279a8;} /* This style gives a navy-ish background to the header */
+h1 {color: #d4ba37; text-align: center;} /* This style gives a yellow font color to the h1 tag and put the text in the middle */
+h2 {color: #2dba55; text-align: left;} /* This style gives a green font color to the h2 tag and put the text in the left */
+h3 {color: aqua; text-align: right;} /* This style gives a light blue font color to the h3 tag and put the text in the right */
+section {margin: 0 auto; width: 100%;} /* This style sets the margin to 0 and auto adjust the width of what's in the section to 100% */
+img {border: 3px solid black;} /* This style sets the border for the image with a black line of 3px thickness */
+footer {background-color: #e01616;} /* This style gives a red background to the footer */
+.highlight {background-color: antiquewhite; color: #ba2dc2;} /* class ref style that gives antique white background color and pink text */
+#mainHeader { font-family: "Lucida Handwriting"; font-size: 30px; font-weight: bold; } /* ID ref style that sets the font to Lucida Handwriting with the font size of 30px and bold */
