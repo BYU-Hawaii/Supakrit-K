@@ -7,4 +7,21 @@ section {margin: 0 auto; width: 100%;} /* This style sets the margin to 0 and au
 img {border: 3px solid black;} /* This style sets the border for the image with a black line of 3px thickness */
 footer {background-color: #e01616;} /* This style gives a red background to the footer */
 .highlight {background-color: antiquewhite; color: #ba2dc2;} /* class ref style that gives antique white background color and pink text */
-#mainHeader { font-family: "Lucida Handwriting"; font-size: 30px; font-weight: bold; } /* ID ref style that sets the font to Lucida Handwriting with the font size of 30px and bold */
+#mainHeader { 
+    font-family: "Sedan SC", serif; 
+    font-size: 30px; 
+    font-weight: bold; } /* new ID ref for the header, sets font to Sedan SC with the font size of 30px and bold */
+#addFooter { 
+    font-family: "Jacquard 12"; 
+    font-size: 15px; 
+    font-style: italic;
+} /* new ID ref for footer part, sets font to Jacquard 12 with 15px size and italic */
+.fontStyle { 
+    font-family: "Danfo", serif;
+    font-weight: 200; 
+    font-size: 22px;  
+} /* new class ref for h2, sets font to Danfo with 22px size and 200 font weight */
+
+
+
+
