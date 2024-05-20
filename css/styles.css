@@ -1,0 +1,53 @@
+figure {
+    margin: 20px 0;
+    padding: 10px;
+    border: 5px solid #000000;
+    background-color: aquamarine;
+}
+
+figure img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+figcaption {
+    font-size: 0.9em;
+    font-weight: 200;
+    text-align: left;
+    color: #;
+    margin-top: 10px;
+}
+
+ul.horizontal {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.horizontal li {
+    float: left;
+}
+
+ul.horizontal li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.horizontal li a:hover:not(.active) {
+    background-color: #000;
+}
+
+ul.horizontal li a.active {
+    background-color:#2ab1cf;
+}
+
+h1 {
+    text-align: center;
+}
+
