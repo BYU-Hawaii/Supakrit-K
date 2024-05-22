@@ -1,22 +1,33 @@
+body {
+    /* background-color: #256fde; */
+    background-image: url(../images/phuchifah.jpg);
+}
+
 figure {
     margin: 20px 0;
-    padding: 10px;
+    padding: 30px;
     border: 5px solid #000000;
-    background-color: aquamarine;
+    border-radius: 8px;
+    background-color: rgba(127, 232, 255, 0.75);
+    font-family: "Sriracha";
+    font-size: 18px;
+}
+
+.border {
+    border: 5px solid #000000;
+    border-radius: 8px;
+    background-color:#2bc478dc;
+    margin: 20px 0;
 }
 
 figure img {
-    width: 100%;
+    display: block;
+    width: 50%;
+    border: 5px solid #000000;
     border-radius: 8px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-figcaption {
-    font-size: 0.9em;
-    font-weight: 200;
-    text-align: left;
-    color: #;
-    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul.horizontal {
@@ -25,6 +36,7 @@ ul.horizontal {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    border-radius: 8px;
 }
 
 ul.horizontal li {
@@ -44,10 +56,32 @@ ul.horizontal li a:hover:not(.active) {
 }
 
 ul.horizontal li a.active {
-    background-color:#2ab1cf;
+    background-color:#ec9410cf;
 }
 
 h1 {
     text-align: center;
+    font-family: "Charmonman", system-ui;
+    font-size: 50px;
+    font-weight: bold 
 }
 
+h2 {
+    text-align: center;
+    font-family: "Itim", cursive;
+    font-size: 30px;
+    font-weight: 700 
+}
+
+
+
+footer {
+    text-align: center;
+    font-weight: bold;
+    font-family: "Charm";
+    font-size: 16px;
+}
+
+.center {
+    text-align: center;
+}
