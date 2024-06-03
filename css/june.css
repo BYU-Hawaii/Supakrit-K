@@ -80,6 +80,7 @@ button {
         /* grid-template-columns: 1fr 1fr; */
         font-size: 20px;
         background-color: gray;
+        color: wheat;
     }
 
     button {
@@ -93,6 +94,7 @@ button {
         /* grid-template-columns: 1fr 1fr 1fr; */
         font-size: 22px;
         background-color: purple;
+        color: white;
     }
 
     button {
