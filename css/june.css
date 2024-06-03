@@ -124,13 +124,14 @@ button {
     .grid-container-body {
         /* grid-template-columns: 1fr 1fr 1fr; */
         font-size: 22px;
-        background-color: #000000;
+        background-color: black;
     }
 
     .header {
         padding: 20px 40px;
         font-size: 24px;
         background-color: white;
+        color: black;
     }
 
     .sidebar {
