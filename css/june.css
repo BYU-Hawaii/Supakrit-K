@@ -60,19 +60,41 @@
     grid-column: 2/4;
 }
 
+body {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
 /* .container {
     display: grid;
     grid-template-columns: 1fr;
-}
+} */
 
 @media (min-width: 768px) {
-    .container {
-    grid-template-columns: 1fr 1fr;
+    body {
+        /* grid-template-columns: 1fr 1fr; */
+        font-size: 20px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 20px;
     }
 }
 
 @media (min-width: 1024px) {
-    .container {
-    grid-template-columns: 1fr 1fr 1fr;
+    body {
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        font-size: 22px;
     }
-} */
+
+    button {
+        padding: 20px 40px;
+        font-size: 24px;
+    }
+}
