@@ -29,7 +29,7 @@ figure img {
     margin-right: auto;
 }
 
-ul.horizontal {
+/* ul.horizontal {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -56,17 +56,49 @@ ul.horizontal li a:hover:not(.active) {
 
 ul.horizontal li a.active {
     background-color:#ec9410cf;
+} */
+
+.nav {
+    grid-area: nav;
+    background-color: #333;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav ul li {
+    border-bottom: 1px solid #444;
+}
+
+.nav ul li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.nav ul li a:hover:not(.active) {
+    background-color: #000;
+}
+
+.nav ul li a.active {
+    background-color:#ec9410cf;
 }
 
 h1 {
-    text-align: center;
+    /* text-align: center; */
     font-family: "Charmonman", system-ui;
     font-size: 50px;
     font-weight: bold 
 }
 
 h2 {
-    text-align: center;
+    /* text-align: center; */
     font-family: "Itim", cursive;
     font-size: 30px;
     font-weight: 700 
@@ -79,8 +111,12 @@ footer {
     font-size: 16px;
 }
 
-.center {
+.header {
+    grid-area: header;
+    background-color: rgb(23, 21, 173);
+    color: rgb(255, 195, 0);
     text-align: center;
+    padding: 1rem;
 }
 
 .container {
@@ -114,9 +150,85 @@ float: right;
 margin-left: 10px;
 }
 
+.center {
+    text-align: center;
+}
+
 .grid-container {
     display: grid;
     column-gap: 50px;
     row-gap: 50px;
+    grid-template-areas:
+        "header"    
+        "nav"
+        "main"
+        "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        background-color: #d94726a2;
 }
 
+.main {
+    grid-area: main;
+    padding: 1rem;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-areas:
+            "nav"
+            "header"
+            "main"
+            "foooter";
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav ul li {
+        border: none;
+    }
+
+    .nav ul li a {
+        border-right: 1px solid #444;
+        border-bottom: none;
+    }
+
+    .nav ul li a:last-child {
+        border-right: none;
+    }
+
+    .galler img {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery img {
+        width: calc(33.333% - 10px) ;
+    }
+    
+}
