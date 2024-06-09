@@ -91,7 +91,7 @@ ul.horizontal li a.active {
 }
 
 .nav ul li a.active {
-    background-color:#ec9410cf;
+    background-color:#0975F6;
 }
 
 h1 {
@@ -117,10 +117,12 @@ footer {
 
 .header {
     grid-area: header;
-    background-color: rgb(23, 21, 173);
-    color: rgb(255, 195, 0);
+    background-color: #f68b09bc;
+    color: #000;
     text-align: center;
     padding: 1rem;
+    border: 5px solid #000000;
+    border-radius: 8px;
 }
 
 .container {
@@ -170,6 +172,10 @@ margin-left: 10px;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         background-color: #d94726a2;
+    /* min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0; */
 }
 
 .main {
