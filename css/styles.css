@@ -171,7 +171,7 @@ margin-left: 10px;
         "footer";
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        background-color: #d94726a2;
+        background: linear-gradient(to bottom, #0066ff 25%, #ccff33 75%); 
     /* min-width: 100vw;
     min-height: 100vh;
     margin: 0;
