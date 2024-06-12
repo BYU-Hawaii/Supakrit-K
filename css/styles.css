@@ -195,6 +195,10 @@ margin-left: 10px;
     height: auto;
 }
 
+/* .gallery2 {
+    display: grid;
+} */
+
 .footer {
     grid-area: footer;
     background-color: #333;
