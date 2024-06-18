@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kid's Wordle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Kid's Wordle</h1>
+    <button id="start-button">Let's Play!</button>
+    <div id="game-container" style="display: none;">
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="row"></div>
+      <div id="attempts-left"></div>
+      <input type="text" id="guess-input" maxlength="4">
+      <button id="submit-guess">Guess!</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -9,7 +9,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     var usernameValid = /^[a-zA-Z0-9]{5,}$/.test(username); // Username should be at least 5 characters long and contain only letters and numbers
     var emailValid = /^[^@]+@\w+(\.\w+)+\w$/.test(email); // Simple email pattern check
     var passwordValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password); // Password should be at least 8 characters long, contain numbers and both lowercase and uppercase letters
-    var numberValid = /^(\+1\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/.test(number);  // Phone number pattern check
+    var numberValid = /^(\(\d{3}\) |\d{3}-)\d{3}-\d{4}$/.test(number);  // US Phone number pattern check
 
     document.getElementById('usernameFeedback').style.display = usernameValid ? 'none' : 'block';
     document.getElementById('emailFeedback').style.display = emailValid ? 'none' : 'block';
@@ -19,9 +19,9 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     document.getElementById('usernameFeedback').textContent = usernameValid ? '' : 'Username should be at least 5 characters long and contain only letters and numbers.';
     document.getElementById('emailFeedback').textContent = emailValid ? '' : 'Please enter a valid email address.';
     document.getElementById('passwordFeedback').textContent = passwordValid ? '' : 'Password should be at least 8 characters long, contain numbers and both lowercase and uppercase letters.';
-    document.getElementById('numberFeedback').textContent = passwordValid ? '' : 'Phone number should be 9 or 10 (with the US country code) digits.';
+    document.getElementById('numberFeedback').textContent = numberValid ? '' : 'Phone number format should be like (000) [area code] 000-0000 or 000-000-0000.';
 
-    var formValid = usernameValid && emailValid && passwordValid &&numberValid;
+    var formValid = usernameValid && emailValid && passwordValid && numberValid;
 
     if (formValid) {
         document.getElementById('registrationFeedback').textContent = 'Your user registration was accepted!';
