@@ -6,7 +6,8 @@ players = document.querySelector(".players"),
 allBox = document.querySelectorAll("section span"),
 resultBox = document.querySelector(".result-box"),
 wonText = resultBox.querySelector(".won-text"),
-replayBtn = resultBox.querySelector("button");
+replayBtn = resultBox.querySelector("button"),
+selectPlay = selectBox.querySelector(".options .playNow");
 
 window.onload = ()=>{
     for (let i = 0; i < allBox.length; i++) {
@@ -23,6 +24,10 @@ selectBtnO.onclick = ()=>{
     selectBox.classList.add("hide");
     playBoard.classList.add("show");
     players.setAttribute("class", "players active player");
+}
+
+selectPlay.onclick = ()=>{
+    window.location.href='game.html';
 }
 
 let playerXIcon = "fas fa-times",
