@@ -1,70 +1,114 @@
-const words = ["CAT", "DOG", "FUN", "TOY", "SUN"]; // List of words (change as needed)
-let answer, attemptsLeft;
-let rows = document.querySelectorAll(".row");
-let guessInput = document.getElementById("guess-input");
-let submitButton = document.getElementById("submit-guess");
-let attemptsLeftDisplay = document.getElementById("attempts-left");
-let gameContainer = document.getElementById("game-container");
+const selectBox = document.querySelector(".select-box"),
+selectBtnX = selectBox.querySelector(".options .playerX"),
+selectBtnO = selectBox.querySelector(".options .playerO"),
+playBoard = document.querySelector(".play-board"),
+players = document.querySelector(".players"),
+allBox = document.querySelectorAll("section span"),
+resultBox = document.querySelector(".result-box"),
+wonText = resultBox.querySelector(".won-text"),
+replayBtn = resultBox.querySelector("button");
 
-const startGame = () => {
-  answer = words[Math.floor(Math.random() * words.length)];
-  attemptsLeft = 5;
-  attemptsLeftDisplay.textContent = `Attempts Left: ${attemptsLeft}`;
-  guessInput.value = "";
-  rows.forEach(row => row.innerHTML = "");
-  gameContainer.style.display = "block";
-};
-
-const checkGuess = (guess) => {
-  let feedback = new Array(4).fill("");
-  for (let i = 0; i < guess.length; i++) {
-    if (guess[i] === answer[i]) {
-      feedback[i] = "green";
-      rows[attemptsLeft - 1].children[i].textContent = guess[i];
-    } else if (answer.includes(guess[i])) {
-      feedback.push(guess[i]); // Track used letters not in the right spot
+window.onload = ()=>{
+    for (let i = 0; i < allBox.length; i++) {
+       allBox[i].setAttribute("onclick", "clickedBox(this)");
     }
-  }
+}
 
-  // Check if any letters used not in the word
-  const usedLetters = new Set(feedback);
-  usedLetters.forEach(letter => {
-    if (!answer.includes(letter) && !feedback.includes("green" + letter)) {
-      feedback.push("wrong-" + letter);
+selectBtnX.onclick = ()=>{
+    selectBox.classList.add("hide");
+    playBoard.classList.add("show");
+}
+
+selectBtnO.onclick = ()=>{ 
+    selectBox.classList.add("hide");
+    playBoard.classList.add("show");
+    players.setAttribute("class", "players active player");
+}
+
+let playerXIcon = "fas fa-times",
+playerOIcon = "far fa-circle",
+playerSign = "X",
+runBot = true;
+
+function clickedBox(element){
+    if(players.classList.contains("player")){
+        playerSign = "O";
+        element.innerHTML = `<i class="${playerOIcon}"></i>`;
+        players.classList.remove("active");
+        element.setAttribute("id", playerSign);
+    }else{
+        element.innerHTML = `<i class="${playerXIcon}"></i>`;
+        element.setAttribute("id", playerSign);
+        players.classList.add("active");
     }
-  });
+    selectWinner();
+    element.style.pointerEvents = "none";
+    playBoard.style.pointerEvents = "none";
+    let randomTimeDelay = ((Math.random() * 1000) + 200).toFixed();
+    setTimeout(()=>{
+        bot(runBot);
+    }, randomTimeDelay);
+}
 
-  // Update remaining attempts and display feedback
-  attemptsLeft--;
-  attemptsLeftDisplay.textContent = `Attempts Left: ${attemptsLeft}`;
-  rows[attemptsLeft - 1].classList.add(...feedback);
-
-  // Check win or lose
-  if (guess === answer) {
-    submitButton.disabled = true;
-    alert("Congratulations! You guessed the word!");
-    if (confirm("Play again?")) {
-      startGame();
+function bot(){
+    let array = [];
+    if(runBot){
+        playerSign = "O";
+        for (let i = 0; i < allBox.length; i++) {
+            if(allBox[i].childElementCount == 0){
+                array.push(i);
+            }
+        }
+        let randomBox = array[Math.floor(Math.random() * array.length)];
+        if(array.length > 0){
+            if(players.classList.contains("player")){ 
+                playerSign = "X";
+                allBox[randomBox].innerHTML = `<i class="${playerXIcon}"></i>`;
+                allBox[randomBox].setAttribute("id", playerSign);
+                players.classList.add("active");
+            }else{
+                allBox[randomBox].innerHTML = `<i class="${playerOIcon}"></i>`;
+                players.classList.remove("active");
+                allBox[randomBox].setAttribute("id", playerSign);
+            }
+            selectWinner();
+        }
+        allBox[randomBox].style.pointerEvents = "none";
+        playBoard.style.pointerEvents = "auto";
+        playerSign = "X";
     }
-  } else if (attemptsLeft === 0) {
-    submitButton.disabled = true;
-    alert(`Oops! The word was ${answer}`);
-    if (confirm("Play again?")) {
-      startGame();
+}
+
+function getIdVal(classname){
+    return document.querySelector(".box" + classname).id;
+}
+function checkIdSign(val1, val2, val3, sign){ 
+    if(getIdVal(val1) == sign && getIdVal(val2) == sign && getIdVal(val3) == sign){
+        return true;
     }
-  }
-};
+}
+function selectWinner(){
+    if(checkIdSign(1,2,3,playerSign) || checkIdSign(4,5,6, playerSign) || checkIdSign(7,8,9, playerSign) || checkIdSign(1,4,7, playerSign) || checkIdSign(2,5,8, playerSign) || checkIdSign(3,6,9, playerSign) || checkIdSign(1,5,9, playerSign) || checkIdSign(3,5,7, playerSign)){
+        runBot = false;
+        bot(runBot);
+        setTimeout(()=>{
+            resultBox.classList.add("show");
+            playBoard.classList.remove("show");
+        }, 700);
+        wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
+    }else{
+        if(getIdVal(1) != "" && getIdVal(2) != "" && getIdVal(3) != "" && getIdVal(4) != "" && getIdVal(5) != "" && getIdVal(6) != "" && getIdVal(7) != "" && getIdVal(8) != "" && getIdVal(9) != ""){
+            runBot = false;
+            bot(runBot);
+            setTimeout(()=>{
+                resultBox.classList.add("show");
+                playBoard.classList.remove("show");
+            }, 700);
+            wonText.textContent = "Match has been drawn!";
+        }
+    }
+}
 
-// This part was missing:
-submitButton.addEventListener("click", () => {
-  const guess = guessInput.value.toUpperCase();
-  // Check if the guess is 4 characters long
-  if (guess.length !== 4) {
-    alert("Please enter a 4-letter word!");
-    return; // Exit the function if guess is not valid
-  }
-  checkGuess(guess);
-});
-
-// Start the game on button click
-document.getElementById("start-button").addEventListener("click", startGame);
+replayBtn.onclick = ()=>{
+    window.location.reload();
+}
