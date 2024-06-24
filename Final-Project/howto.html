@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
-<body>
+<body class="grid-container">
+    <header class="header">
+        <h2>How to Play</h2>
+    </header>
     <nav class="nav center">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -17,5 +20,26 @@
             <li><a href="feedback.html">Feedback</a></li>
         </ul>
     </nav>
+
+    <section class="main">
+        <figure>
+            <p class="center">
+                You are either X or O, your friend (or the computer in this case) is the other. Players take turns putting their marks in empty squares. The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner. When all 9 squares are full, the game is over.
+            </p>
+        </figure>
+        <div class="content">
+            <div class="options">
+                <button class="center" onclick="window.location.href='game.html'">Play now!</button>
+            </div>
+        </div>
+        
+    </section>
+    <footer class="border">
+        <p>Thank you for spending time visiting our page! <br>
+            &copy; S Komolmis, 2024
+        </p>
+    </footer>
+    <script src="script.js"></script>
+
 </body>
 </html>
